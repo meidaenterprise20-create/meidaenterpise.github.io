@@ -1,3 +1,8 @@
+meidaenterprise-site/
+│
+├── index.html
+├── style.css
+└── script.js
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -60,6 +65,66 @@
   <footer>
     © <span id="year"></span> Meida Enterprise. All rights reserved.
   </footer>
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  line-height: 1.6;
+}
+h1, h2 { color: #0f172a; }
+.hero {
+  background: linear-gradient(135deg,#1e3a8a,#0f172a);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+#about, #features, #products, #contact {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.alert {
+  background: #fef3c7;
+  color: #78350f;
+  border-left: 4px solid #facc15;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+ul { list-style: none; padding: 0; }
+ul li { margin: 10px 0; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 15px;
+}
+.grid div {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 15px;// dynamically show current year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// optional smooth‑scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+});
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+footer {
+  background-color: #0f172a;
+  color: #94a3b8;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
 
   <script src="script.js"></script>
 </body>
